@@ -12,8 +12,6 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                pip install -r robotframework
-                pip install -r robotframework-seleniumlibrary
                 '''
             }
         }

@@ -1,0 +1,19 @@
+*** Settings ***
+Library   Browser
+
+*** Test Cases ***
+Cerebra
+
+        New Browser     browser=chromium    headless=True      slowMo=0:00:01
+        New Page        http://h2879304.stratoserver.net/head
+        click           //*[@id="voice-assistant-nav"]/p
+        click           //*[@id="female"]
+        click           //*[@id="joint-control-nav"]
+        click           //*[@id="left-hand-nav"]/p
+        click           //*[@id="dialogBtn_index_left_stretch"]
+        Fill Text       //*[@id="velocityId"]   40
+        Press Keys      Enter
+        click           //*[@id="closeButton"]
+        ${Log} =    Get Console Log
+        Log To Console    ${Log}
+        @{info}     Close Page
